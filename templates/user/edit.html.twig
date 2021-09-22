@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<body class="bgPageEditUser">
+<div>
+     <h1 class='text-center mt-5'>Modifier votre profil</h1>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {# <a href="{{ path('user_index') }}">back to list</a> #}
+<div class="text-center m-3">
+<a style="background-color:#2EB7C7; color: #FFF;" class="btn m-1" href="{{ path('user_index') }}">Retour Accueil</a>
+    {{ include('user/_delete_form.html.twig') }}
+</div>
+    
+
+</div>
+</body>
+   
+{% endblock %}

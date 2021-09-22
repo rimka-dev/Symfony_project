@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+
+	<body class="bodyPageRegister">
+
+		<div class="container">
+			<div class="pageregister">
+				<h1>Rejoignez la communauté RétroColoc</h1>
+				<p>... en 2 minutes top chrono
+				</p>
+			</div>
+			{{ form_start(registrationForm,{'attr':{'class':'form-login formregister row '}})}}
+			{{ form_errors(registrationForm) }}
+			{{ form_row(registrationForm._token) }}
+
+			<div class="mb-3 col-sm-6">
+				<label for="exampleInputEmail1" class="form-label text-center">Votre nom</label>
+				{{ form_widget(registrationForm.nom,{'attr':{'class':'form-control', 'placeholder':' Dupont'}}) }}
+			</div>
+			<div class="mb-3 col-sm-6 ">
+				<label for="exampleInputPassword1" class="form-label text-center">Votre prénom</label>
+				{{ form_widget(registrationForm.prenom,{'attr':{'class':'form-control', 'placeholder':' Dominique'}}) }}
+			</div>
+			<div class="mb-3 col-sm-6">
+				<label for="exampleInputPassword1" class="form-label text-center">Votre email</label>
+				{{ form_widget(registrationForm.email,{'attr':{'class':'form-control', 'placeholder':' nom@mail.com'}}) }}
+			</div>
+			<div class="mb-3 col-sm-6">
+				<label for="exampleInputPassword1" class="form-label">Votre Âge</label>
+				{{ form_widget(registrationForm.age,{'attr':{'class':'form-control', 'placeholder':' 65 ans'}})}}
+			</div>
+			<div class="mb-3 col-sm-6 ">
+				<label for="exampleInputPassword1" class="form-label">Photo de profil (facultatif)</label>
+				{{form_widget(registrationForm.img_avatar, {'attr': {'class':'fileType form-control m-2','id': 'formFile'}})}}
+			</div>
+			<div class="mb-3 col-sm-6 ">
+				<label for="exampleInputPassword1" class="form-label">Votre mot de passe</label><br>
+				{{form_widget(registrationForm.plainPassword, {'attr': {'placeholder':'mot de passe'}})}}
+			</div>
+			{{ form_row(registrationForm.agreeTerms) }}
+			<div class="text-center">
+				<button type="submit" class="bttonlongin btn mt-5 ">C'est tout bon</button>
+			</div>
+			{{ form_end(registrationForm,{'render_rest': false}) }}
+
+		</div>
+	</body>
+	{# {{ form_start(registrationForm) }}
+			        {{ form_row(registrationForm._token) }}
+			        Nom {{ form_widget(registrationForm.nom) }} 
+			        Prenom {{ form_widget(registrationForm.prenom) }} 
+			        Âge {{ form_widget(registrationForm.age) }} <br>
+			        Avatar : {{ form_widget(registrationForm.img_avatar) }}
+			        {{ form_row(registrationForm.email) }}
+			        {{ form_row(registrationForm.plainPassword, {
+			            label: 'Mot de passe'
+			        }) }}
+			        {{ form_row(registrationForm.agreeTerms) }}
+			
+			        <button type="submit" class="btn btn-success">Register</button>
+			    {{ form_end(registrationForm,{'render_rest': false}) }} #}
+{% endblock %}

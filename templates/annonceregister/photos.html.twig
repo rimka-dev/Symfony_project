@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Annonces{% endblock %}
+
+{% block body %}
+<div class="container">
+    Logement Equipements Colocataires Activités <strong>Photos</strong> Validator
+    <br>
+    <br>
+    <hr>
+    <h2>Chère Colette, c’est presque fini ! </h2>
+    <p>Il est temps de télécharger 5 photos de votre lieu de vie : 
+    La vue extérieure, les espaces communs (salon, salle à manger, cuisine), la chambre que vous louez, ...  </p>
+    <p>C’est une étape importante qui donnera envie à vos futurs colocataires de vous contacter.</p>
+    Ajouter une image :<br>
+    {{ form_start(form) }}
+    {{form_widget(form._token)}}
+    {{form_errors(form)}}
+        {{form_widget(form.img1)}}<br>
+        {{form_widget(form.img2)}}<br>
+        {{form_widget(form.img3)}}<br>
+        {{form_widget(form.img4)}}<br>
+
+        <a href="{{ path('annonceregister/activites') }}">Etape précedente</a>
+        {{form_widget(form.save)}}
+        <br><br>
+    {{ form_end(form, {'render_rest': false}) }}
+</div>
+{% endblock %} 

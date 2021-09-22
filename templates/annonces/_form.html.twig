@@ -1,0 +1,214 @@
+{{ form_start(form,{'attr':{'class':'form-login formCreatAnnonce m-5', 'style':'max-width: 70%; margin: 0 auto;'}}) }}
+{{ form_errors(form) }}
+{{ form_row(form._token) }}
+<h1 class="text-center m-4">Créer votre annonce</h1>
+<h3 class="m-2 text-decoration-underline">Coordonnées du logement</h3>
+<div class="mb-3">
+	<label for="exampleInputEmail1" class="form-label">N° et voie</label>
+	{{form_widget(form.adresse, {'attr':{'class':'form-control', 'id':'exampleInputEmail1', 'aria-describedby':'emailHelp'}})}}
+	{{ form_errors(form.adresse) }}
+</div>
+<div class="mb-3 ">
+	<label for="exampleInputPassword1" class="form-label">Appartement, bâtiment (facultatif)</label>
+	{{form_widget(form.comp_adresse, {'attr':{'class':'form-control', 'id':'exampleInputPassword1'}})}}
+	{{ form_errors(form.comp_adresse) }}
+</div>
+<div class="mb-3 d-flex  ">
+	<div>
+		<label for="exampleInputPassword1" class="form-label">Pays</label>
+		{{form_widget(form.pays, {'attr':{'class':'form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.pays) }}
+	</div>
+	<div>
+		<label for="exampleInputPassword1" class="form-label">Région</label>
+		{{form_widget(form.region, {'attr':{'class':'form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.region) }}
+	</div>
+</div>
+
+
+
+<div class="mb-3 d-flex  ">
+	<div>
+		<label for="exampleInputPassword1" class="form-label">Code postal</label>
+		{{form_widget(form.code_postal, {'attr':{'class':'form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.code_postal) }}
+	</div>
+	<div>
+		<label for="exampleInputPassword1" class="form-label">Ville</label>
+		{{form_widget(form.ville, {'attr':{'class':'form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.ville) }}
+	</div>
+</div>
+<h3 class="m-3 text-decoration-underline">Informations générales du logement</h3>
+<div class="row">
+	<div class="col-6">
+		<p class="fw-bold">Type de logement</p>
+		{# {{dump(form.type_logement)}} #}
+		{% for children in form.type_logement %}
+			{{ form_widget(children, {'attr':{'class':'form-check-input  ', 'id':'flexCheckDefault'}}) }}
+			{{form_label(children)}}
+			{{ form_errors(children) }}
+		{% endfor %}
+	</div>
+	<div class="col-6">
+		<p class="fw-bold">Superficie total du logement</p>
+		{{form_widget(form.superficie, {'attr':{'class':'input_superficie mb-3','type':'number' ,'placeholder':' Ex : 50'}})}}m²
+		{{ form_errors(form.superficie) }}
+	</div>
+</div>
+<div class="row">
+	<div class="d-flex">
+		<label for="exampleInputPassword1" class="form-label m-2 fw-normal">Combien de colocataire
+												                        pouvez-vous accueillir?</label>
+		{{form_widget(form.nbr_colocataire,{'attr':{'class':'inputNumber form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.nbr_colocataire) }}
+	</div>
+	<div class="d-flex">
+		<label for="exampleInputPassword1" class="form-label m-2 fw-normal">Combien de salle de bain sont
+												                        disponibles dans le logement?</label>
+		{{form_widget(form.nbr_sdb,{'attr':{'class':'inputNumber form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.nbr_sdb) }}
+	</div>
+	<div class="d-flex">
+		<label for="exampleInputPassword1" class="form-label m-2 fw-normal">Combien de chambre sont
+												                        disponible à la location?</label>
+		{{form_widget(form.nbr_chambre,{'attr':{'class':'inputNumber form-control', 'id':'exampleInputPassword1'}})}}
+		{{ form_errors(form.nbr_chambre) }}
+	</div>
+</div>
+<div class="row">
+
+	<div class="col-sm-3 col-md-4 mt-3">
+		<p class="fw-bold text-center">Superficie</p>
+		<div class="d-flex justify-content-center">
+			<label for="exampleInputPassword1" class="form-label m-2 fw-normal">Chambre</label>
+			{{form_widget(form.spf_chambre,{'attr':{'class':'inputNumber form-control', 'id':'exampleInputPassword1'}})}}m²
+			{{ form_errors(form.spf_chambre) }}
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-4">
+		<p class="fw-bold m-3 text-center ">Prix par mois</p>
+		<div class="d-flex justify-content-center">
+			{{form_widget(form.prix,{'attr':{'class':'inputNumber form-control', 'id':'exampleInputPassword1'}})}}€
+			{{ form_errors(form.prix) }}
+		</div>
+	</div>
+</div>
+<h3 class="m-3 text-decoration-underline">Equipement du logement</h3>
+{% for equipement in form.equipements %}
+	{{ form_widget(equipement, {'attr':{'class':'form-check-input  ', 'id':'flexCheckDefault'}}) }}
+	{{form_label(equipement)}}
+	{{ form_errors(equipement) }}
+{% endfor %}
+<h3 class="m-3 text-decoration-underline">Règlement intérieur</h3>
+{{form_widget(form.animaux, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}})}}
+Animaux acceptés
+{{ form_errors(form.animaux) }}
+{{form_widget(form.fumeur, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}})}}
+Logement non fumeur
+{{ form_errors(form.fumeur) }}
+
+<h3 class="m-3 text-decoration-underline">Votre futur colocataire</h3>
+{% for genre in form.pref_genre %}
+	{{ form_widget(genre, {'attr':{'class':'form-check-input  ', 'id':'flexCheckDefault'}}) }}
+	{{form_label(genre)}}
+	{{ form_errors(genre) }}
+{% endfor %}
+
+<p class="m-4">Y-a-t-il des animaux présents sur le lieu de vie?</p>
+
+{{form_widget(form.animaux_chat, {'attr':{'class':'form-check-input  ', 'id':'flexCheckDefault'}})}}
+Chat
+{{form_widget(form.animaux_chien, {'attr':{'class':'form-check-input  ', 'id':'flexCheckDefault'}})}}
+Chien
+{{form_widget(form.animaux_rongeur, {'attr':{'class':'form-check-input  ', 'id':'flexCheckDefault'}})}}
+Rongeurs<br>
+<span class="mt-3">Autres</span> {{form_widget(form.animaux_autres, {'attr':{'class':'form-control ','style':'width: 150px;', 'placeholder':' Oiseaux...'}})}}
+<h3 class="m-3 text-decoration-underline">Vos activités</h3>
+{% for loisir in form.loisirs  %}
+        {{form_widget(loisir, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}})}}
+        {{form_label(loisir)}}
+    {% endfor %}
+<p class="m-4">*Décrivez précisément votre logement et ses différentes caractéristiques ci-dessous.<br>
+	Cela aidera votre prochain.e coloc à se projeter</p>
+     {{form_widget(form.description, {'attr': {'class':'form-control m-3','placeholder': 'Déscriptions...'}})}}
+<div class="mb-3">
+	<label for="formFile" class="form-label">Téléchargez 4 photos au maximum</label>
+	<p style="font-size: 12px; color:#D65863 ;">*C'est une étape importante qui donnera envie à vos futurs colocataires de vous contacter.</p>
+	{{form_widget(form.img1, {'attr': {'class':'fileType form-control m-2','id': 'formFile'}})}}
+    {{form_widget(form.img2, {'attr': {'class':'fileType form-control m-2','id': 'formFile'}})}}
+    {{form_widget(form.img3, {'attr': {'class':'fileType form-control m-2','id': 'formFile'}})}}
+    {{form_widget(form.img4, {'attr': {'class':'fileType form-control m-2','id': 'formFile'}})}}
+</div>
+<div class="text-center mb-3">
+	<button type="submit " class="bttonlongin btn mt-2 ">Enregistrer</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}
+
+
+
+
+
+{# {{ form_start(form) }}
+Votre logement :<br>
+<form>
+     <label for="exampleInputEmail1" class="form-label">Adresse du logement</label><br>
+    {{form_widget(form.adresse)}}<br>
+     {{ form_errors(form) }}
+     {{ form_row(form._token) }}
+    Appartement, bâtiment (facultatif)<br>
+    {{form_widget(form.comp_adresse)}}<br>
+    Pays :
+    {{form_widget(form.pays)}}<br>
+    Ragion :
+    {{form_widget(form.region)}}<br>
+    Code postal {{form_widget(form.code_postal)}}
+    Ville {{form_widget(form.ville)}}<br>
+    Type de logement :{{ form_widget(form.type_logement) }} 
+    Superficie totale du logement {{form_widget(form.superficie)}} m2<br>
+    Combien de colocataire pouvez-vous accueillie? <br>
+    {{form_widget(form.nbr_colocataire)}}<br>
+    Combien de salle de bain sont disponibles dans le logement?<br>
+    {{form_widget(form.nbr_sdb)}}<br>
+    Combien de chambres sont disponibles à la colocation?<br>
+    {{form_widget(form.nbr_chambre)}}<br>
+    <p>&emsp; &emsp; &emsp;Supeficie de la chambre &nbsp; &emsp; Prix par mois </p> <br>
+    Chambre 1 {{form_widget(form.spf_chambre)}} {{form_widget(form.prix)}} <br><br>
+    Vos équipemùents :<br>
+    {% for equipement in form.equipements  %}
+        {{form_label(equipement)}}
+        {{form_widget(equipement)}}
+    {% endfor %}
+    <br>
+    Le réglement intérieur : <br>
+    Animaux accepté
+    {{form_widget(form.animaux)}}<br>
+    Logement non fumeur
+    {{form_widget(form.fumeur)}}<br>
+    Vous préférez vivre avec : <br>
+    {{form_widget(form.pref_genre)}}<br>
+    Y-a-t-il des animaux présents sur le lieu de vie? <br>
+    {{form_widget(form.animaux_chat)}} Chat <br>
+    {{form_widget(form.animaux_chien)}} Chien <br>
+    {{form_widget(form.animaux_rongeur)}} Rongeurs <br>
+    Autres {{form_widget(form.animaux_autres)}} <br>
+    Qu'aimez-vous faire dans votre temps libre : <br>
+    {% for loisir in form.loisirs  %}
+        {{form_label(loisir)}}
+        {{form_widget(loisir)}}
+    {% endfor %}
+    <br>
+    Description :<br>
+    {{form_widget(form.description, {'attr': {'placeholder': 'Votre description...'}})}}<br>
+    Ajouter une image :<br>
+    {{form_widget(form.img1)}}<br>
+    {{form_widget(form.img2)}}<br>
+    {{form_widget(form.img3)}}<br>
+    {{form_widget(form.img4)}}<br>
+
+    
+    <button class="btn">{{ button_label|default('Save') }}</button>
+</form>
+{{ form_end(form, {'render_rest': false}) }}
+ #}

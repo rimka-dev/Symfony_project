@@ -1,0 +1,865 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: #003F63;
+} 
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Pacifico', cursive;
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size:24px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.rose {color:#D65863}
+
+.img-force-fluid {
+    width:100%;
+}
+/* ============ barre de navigation ============================= */
+
+.nav-link {
+    font-weight: 600;
+    color: #003F63;
+}
+.nav-link:hover {
+    color:#D65863
+}
+
+/* ================ HOMEPAGE =====================*/
+.concept {
+    margin-top: 90px;
+    margin-bottom: 130px;
+}
+.concept button {
+        width: 20%;
+        border-radius: 20px;
+        border: none;
+        padding: 3px;
+        color: white;
+        background-color:#D65863 ;
+        margin: 0 auto;
+        margin-bottom: -25px;
+}
+.comment {
+    padding-top: 60px;
+    background-color: #F9F9F9;
+}
+
+.comment .numero {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: #003F63;
+}
+.comment .numero p {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color: white;
+}
+
+.comment article {
+    margin-bottom: 4rem;
+}
+
+#annonces {
+    padding-bottom: 4rem;
+}
+
+
+.card-avis {
+    background-color: #F8F8F8 ;
+    border-radius: 25px;
+    padding: 2rem;
+    height: 100%;
+}
+
+.shadow-card {
+    -webkit-box-shadow: 0px 7px 5px -5px rgba(0,0,0,0.2); 
+    box-shadow: 0px 7px 5px -5px rgba(0,0,0,0.2);
+}
+
+.card-avis h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+}
+
+.card-avis .score{
+    color: #D65863;
+}
+
+.card-avis blockquote {
+    padding: 0 2rem;
+    position: relative;
+
+}
+
+.card-avis blockquote::before,
+.card-avis blockquote::after {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute; 
+    font-size: 7rem;
+    margin-top: -20px;
+    color: #2EB7C7;
+}
+
+
+.card-avis blockquote::before {
+    content: '“';
+    left: -10px;
+}
+
+.card-avis blockquote::after {
+    content: '”';
+    right: 0px;
+}
+
+#groupe-vieux {
+    height: 35vw;
+    background-image: url('/images/img/groupe.png');
+    background-size: cover;
+    background-position:top;
+    position: relative;
+}
+
+#groupe-vieux div {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    /* width: 30%; */
+    padding: 5rem;
+    border-radius: 25px;
+    position: absolute;
+    right: 5%;
+    bottom: 30%;
+}
+/* ============= header avec photo ================= */
+/* ************************************* HEADER *************************************** */
+
+header{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+.logo{
+    margin-top: -20px;
+}
+.bob .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+header .first > div {
+    position: relative;
+}
+.picto-search{
+    height:1.2rem;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+
+}
+
+.input-search {
+
+    width:  100%;
+    height: 3em;
+    border-radius: 20px;
+    border-color: white;
+    padding-left: 40px;
+
+}
+
+#bt-connect {
+    margin-bottom: 2rem;
+}
+.profile {
+    margin-right: 10px;
+}
+
+
+a .profile{
+    height:2.4rem;
+}
+
+.profile img {
+    margin-right: 15px;
+}
+
+
+
+.gris{
+    background-color: #F9F9F9;
+    height: 13rem;
+    padding: 3rem;
+}
+.text-right a{
+    color:#003F63;
+    margin-top: 3rem;
+}
+.key{
+    border: solid #D65863;
+    border-radius: 30px;
+    padding: 1rem 2rem;
+    border-width: 0.2rem;
+    margin-left: 8px;
+}
+
+.key img {
+    margin-right: 20px;
+}
+
+
+a:hover{
+    text-decoration: none;
+}
+.second{
+    background-color: white;
+    letter-spacing: 1px;
+    font-size: 1.7rem;
+}
+.second div{
+    margin: 5rem 0;
+}
+.second div a{
+    color:#003F63;
+}
+
+/* ************************************* MAIN *************************************** */
+
+.hero{
+    background-image: url(../images/img/2_bros.jpg);
+    position:relative;
+    background-size:cover;
+    background-position: center;
+    padding: 85px 0 575px;
+}
+.hero h1{
+    color: white;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    /* margin-top: -27rem; */
+}
+
+.encart{
+    bottom: 55px;
+    right: 405px;
+    width: 300px;
+    position: absolute;
+    margin-right: -10em;
+}
+
+.cta{
+    background-color: #2EB7C7;
+    border-radius: 30px;
+    padding: 35px;
+    position: relative;
+    height: 185px;
+    
+}
+
+.circle-logo{
+    width: 60px;
+    text-align: center;
+    position: absolute;
+    top: -40px;
+    left: 114px;
+}
+
+.whitelogo{
+    background-color: #2EB7C7;
+    border-radius: 89px;
+    padding: 16px;
+    width: 75px;
+}
+
+.hero .cta a{
+    color: #003F63;
+    text-align: center;
+    border: transparent;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px -4px;
+    background-color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 240px;
+}
+
+
+
+
+
+/* =================== formulaire de recherche par filtre =========================== */
+.accordion-button {
+    width: 13%;
+    text-align: right;
+    left: 75%;
+    color: #003F63;
+    background-color:#F9F9F9 ;
+    font-size: 13px;
+    font-weight: bold;
+   
+}
+.accordion-header{
+    text-align: right;
+    background-color:#F9F9F9 ;
+}
+.accordion-button:not(.collapsed){
+    color: #D65863;
+    background-color:#F9F9F9 ;
+    box-shadow: none;
+}
+#flush-collapseOne{
+    background-color:#F9F9F9 ;
+}
+
+#form_recherche{
+    background-color:#F9F9F9 ;
+    color: #003F63;
+    border-radius: 20px;
+}
+#form_recherche .titre_forme{
+    
+    font-weight:800;
+}
+
+.input_prix{
+    max-width: 130px;
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    margin: 2px;
+    box-shadow: inset 0px 2px 2px 0px rgba(111, 111, 114, 0.2);
+}
+
+.input_ville{
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    margin: 2px;
+    box-shadow: inset 0px 2px 2px 0px rgba(111, 111, 114, 0.2);
+}
+
+.input_superficie{
+    max-width: 100px;
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    margin: 4px;
+    box-shadow: inset 0px 2px 2px 0px rgba(111, 111, 114, 0.2);
+}
+
+#form_recherche .bouton{
+    width: 20%;
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    color: white;
+    background-color:#D65863 ;
+    margin: 0 auto;
+    margin-bottom: -25px;
+}
+
+#form_recherche .bouton:hover{
+    color:#003F63;
+    font-weight: bold;
+}
+
+.form-check-input {
+    border-color: #D65863;
+}
+
+.form-check-input:checked {
+    background-color: #D65863;
+    border-color: #D65863;
+}
+
+.ligne-droite-form{
+    position: relative;
+}
+
+.ligne-droite-form::after{
+   content: "";
+   display: block;
+   position:absolute;
+   height: 60px;
+   width: 2px;
+   left: 100%;
+   top: 5px;
+   background-color: #003F63;
+}
+.ligne-droite-partiedeux{
+    position: relative;
+}
+
+.ligne-droite-partiedeux::after{
+    content: "";
+   display: block;
+   position:absolute;
+   height: 120px;
+   width: 2px;
+   left: 100%;
+   top: 5px;
+   background-color: #003F63;
+}
+
+@media screen and (max-width: 768px) {
+    .ligne-droite-partiedeux::after{
+        content: none;
+      
+    }
+    .ligne-droite-form::after{
+        content:none;
+      
+     }
+
+     .bttonlongin{
+         font-size: 12px;
+         width: 40%;
+     }
+    
+}
+
+
+
+/* ======== formulaire de login ============== */
+
+.bodyPageLogin{
+    background-image:url(../images/img/senior-people-watching-television-in-the-living-room_1.png) ;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.form-login{
+    background-color:#F9F9F9 ;
+    color: #003F63;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.4);
+}
+.form-login label{
+    font-weight: bold;
+}
+
+.form-login input{
+    max-width: 70%;
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    margin: 4px;
+    box-shadow: inset 0px 2px 2px 0px rgba(111, 111, 114, 0.2);
+}
+
+.bttonlongin{
+    width: 25%;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    color: white;
+    background-color:#D65863 ;
+    margin: 0 auto;
+    margin-bottom: -20px;
+}
+
+.bttonlongin:hover{
+    color:#003F63;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+    .bttonlongin{
+        font-size: 15px;
+        width: 30%;
+    }
+}
+/* ============== formulaire de création d'annonce ================== */
+.formCreatAnnonce{
+    position: relative;
+left: 143px;
+}
+
+.bodyFormAnnonce{
+    background-image:url(../images/pg_form_annonce.jpg) ;
+    background-position: top;
+    background-size: cover;
+    background-attachment:fixed;
+}
+
+.inputNumber{
+    width: 120px;
+}
+
+.fileType{
+    width: 50%;
+    font-size: 16px;
+    background: #003F63;
+    color: #F9F9F9;
+    padding: 3px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px #3f3d3d;
+}
+::-webkit-file-upload-button{
+    color: white;
+    background: #003F63;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 0 1px 1px #99888a;
+    outline: none;
+}
+
+/* ===============formulaire de création de compte (register)============================ */
+.bodyPageRegister{
+    background-image:url(../images/bgFormLogin.jpg) ;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.formregister{
+    max-width: 80%;
+    margin: 180px 20px;
+}
+.pageregister{
+    max-width: 60%;
+    margin:60px 30px;
+    padding: 20px;
+    border-style: none;
+    border-radius: 30px;
+    box-shadow: 1px 0 1px 1px #99888a;
+    background-color: rgba(237, 241, 245, 0.568);
+
+}
+/* ======== personalisation de la card ======== */
+
+.cardAnnonce{
+    max-width: 90%;
+    max-height: 88%;
+    background-color:#F9F9F9 ;
+    color: #003F63;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.4);
+    height: 100%;
+}
+.carousel-control-next-icon{
+    border-radius: 50px;
+    background-color: #2eb7c7;
+    margin-left: 35px;
+    position: absolute;
+}
+.carousel-control-prev-icon{
+    border-radius: 50px;
+    background-color: #2eb7c7;
+    margin-right: 35px;
+    position: absolute;
+}
+
+.imgAvatarCard{
+    position: absolute;
+    margin-top: -30px;
+    width: auto;
+    max-width: 3%;
+    margin-left: -19px;
+}
+
+.nameUser{
+    margin-left: 45px;
+    margin-top: 6px;
+}
+.borderImageCard{
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .paraEquipements{
+        margin-bottom: 6rem;
+    }
+    .cardAnnonce {
+        max-height: 93%;
+    }
+    .imgAvatarCard{
+        margin-top: -70px;
+        width: auto;
+        max-width: 8%;
+        margin-left: -19px;
+    }
+    .formCreatAnnonce{
+        
+    left: 0px;
+    }
+    
+}
+
+/* ============== page filtre des annonces ========= */
+
+.carteMaps{
+    width: 50%;
+    text-align: center;
+    padding: 20px 6px;
+}
+
+/* ================== page User show ============== */
+.userShow{
+    background-image:url(../images/bgPageShowUser.jpg) ;
+    background-position: 100% 27%;
+    background-size: cover;
+    max-width: 100%;
+    height: 450px;
+    text-align: center;
+}
+
+.h1ShowUser{
+    color: #003F63;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 50%;
+    border-radius: 20px;
+    background-color: rgba(237, 241, 245, 0.568);
+    position: relative;
+    top: 250px;
+}
+
+.btnEditUser{
+    width: 25%;
+    font-size: 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: none;
+    padding: 8px;
+    color: white;
+    background-color:#D65863 ;
+    position: relative;
+    top: 286px;
+   
+}
+
+.cardUserShow1{
+    background-image:url(../images/bienvenuAnnonce1.jpg) ;
+    background-position: 100% 55%;
+    background-size: cover;
+    max-width: 80%;
+    height: 300px;
+    margin: 5px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0px;
+}
+.cardUserShow2{
+    background-image:url(../images/bienvenuAnnonce2.jpg) ;
+    background-position: 100% -20%;
+    background-size: cover;
+    max-width: 80%;
+    height: 300px;
+    margin: 5px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0px;
+}
+.cardUserShow3{
+    background-image:url(../images/bienvenuAnnonce3.png) ;
+    background-position: 100% 6%;
+    background-size: cover;
+    max-width: 80%;
+    height: 300px;
+    margin: 5px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0px;
+}
+
+.h5UserShow{
+    font-size: 18px;
+    margin-top: 20px;
+    color: #003F63;
+    padding: 10px;
+    max-width: 100%;
+    background-color: rgba(237, 241, 245, 0.568);
+}
+.btnAddAnnonce{
+    width: 25%;
+    font-size: 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: none;
+    padding: 8px;
+    color: white;
+    background-color:#D65863 ;
+    position: relative;
+    top: -20px;
+    left: 45%;
+}
+
+@media screen and (max-width: 768px) {
+    .h1ShowUser{
+        top: 100px
+    }  
+    
+    
+}
+@media screen and (max-width: 768px){
+    .btnEditUser{
+        top: 150px;
+    }
+}
+/* ============ form edit user ============= */
+.bgPageEditUser{
+    background-image:url(../images/bgPageShowUser.jpg) ;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/* =============icons bootstrap ==================*/
+.bi-arrow-left-short {
+    font-size: 4rem;
+    font-weight: 800;
+}
+a.arrow i, a.arrow span {
+vertical-align: middle;
+line-height: 4rem;
+}
+
+a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #003F63;
+    text-decoration: none;
+    }
+
+/*pagge annonce*/
+.bloc-annonce {
+    margin-top: 5rem !important;
+    margin-bottom:  3rem !important;
+}
+.bloc-annonce .avatar {
+    margin-top: -50px;
+    max-width: 70%;
+}
+.bloc-annonce .carte {
+    margin: 20px 0;
+}
+.descriptif-annonce .btn {
+    border: none;
+    color: white;
+    background-color: #D65863;
+    margin: 0 auto;
+    display: block;
+    padding: 10px 60px;
+    box-shadow:0px 4px 4px -3px rgba(0,0,0,0.25);
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+.descriptif-annonce {
+    box-shadow:0px 3px 6px -2px rgba(0,0,0,0.25);
+    padding:25px;
+    margin: 0 0 40px 0;
+}
+
+.descriptif-annonce section {
+    margin: 0 0 40px 0;
+}
+
+.descriptif-annonce h3 {
+    border-bottom: 2px solid #003F63;
+    width: 100%;
+    padding-bottom: 3px;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}
+
+.loisirs .badge {
+    display: inline-block;
+    background-color: #2EB7C7;
+    border-radius: 30px;
+    min-width: 120px;
+    text-align: center;
+    color: white;
+    padding: 4px;
+    margin: 7px 9px;
+    box-shadow:0px 4px 4px -3px rgba(0,0,0,0.25);
+    font-weight: 400;
+    padding: 10px;
+}
+.photos .img {
+max-height: 80px !important;
+overflow: hidden;
+}
+@media (min-width: 576px) { 
+    .photos .img {
+        max-height: 60px !important;
+        } 
+}
+@media (min-width: 992px) { 
+    .photos .img {
+        max-height: 80px !important;
+        } 
+}
+
+/*adaptation globale de bootstrap*/
+.rounded {
+    border-radius: 2rem!important;
+}
+.font-weight-bold {font-weight: bold;}
+.badge {font-size: 12px; font-weight: 400;}
+
+/*================== pour les pages statiques ==========*/
+.form-login.contact textarea {
+    border: inherit;
+}
+/* =========== footer ============= */
+footer{
+    max-width: 100%;
+}
+
+.footer_header{
+    max-width: 100%;
+    background-color: #fbbebe;
+    color: white;
+    height: 150px;
+    padding-top: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.logofooter{
+    position: relative;
+    left: 20px;
+    top: -47px;
+    padding: 60px;
+}
+.formfooter{
+    background-color: white;
+}
+
+.formfooter input, textarea{
+    border-radius: 20px;
+    border: none;
+    padding: 3px;
+    margin: 2px;
+    background-color:#F9F9F9 ;
+    box-shadow: inset 0px 2px 2px 0px rgba(107, 107, 109, 0.2);
+}
+.btnformfooter{
+    background-color:#fbbebe;
+    border-radius: 20px;
+    width: 40%;
+    color: white;
+    margin: 8px;
+}

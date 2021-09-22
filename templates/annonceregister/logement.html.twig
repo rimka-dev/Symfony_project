@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Annonces{% endblock %}
+
+{% block body %}
+<div class="container">
+    <strong>Logement</strong> Equipements Colocataires Activités Photos Validator
+    <br>
+    <br>
+    <hr>
+    <p>Bonjour Colette ! Nous allons vous aider à publier une annonce.</p>
+
+    <h2>Coordonées du logement</h2>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form._token) }}
+        <label for="exampleInputEmail1" class="form-label">Adresse du logement</label><br> 
+        {{form_widget(form.adresse)}}<br>
+        
+        Appartement, bâtiment (facultatif)<br>
+        {{form_widget(form.comp_adresse)}}<br>
+        Pays :
+        {{form_widget(form.pays)}}<br>
+        Ragion :
+        {{form_widget(form.region)}}<br>
+        Code postal {{form_widget(form.code_postal)}}
+        Ville {{form_widget(form.ville)}}<br><br><br>
+
+        Type de logement :{{ form_widget(form.type_logement) }} 
+        Superficie totale du logement {{form_widget(form.superficie)}} m2<br><br>
+        
+        Combien de colocataire pouvez-vous accueillie? <br>
+        {{form_widget(form.nbr_colocataire)}}<br><br>
+
+        Combien de salle de bain sont disponibles dans le logement?<br>
+        {{form_widget(form.nbr_sdb)}}<br><br>
+
+        Combien de chambres sont disponibles à la colocation?<br>
+        {{form_widget(form.nbr_chambre)}}<br><br>
+
+        <p>&emsp; &emsp; &emsp;Supeficie de la chambre &nbsp; &emsp; Prix par mois </p> <br>
+        Chambre 1 {{form_widget(form.spf_chambre)}} {{form_widget(form.prix)}} <br><br>
+        
+        Meublée
+        {{form_widget(form.chambre_meub)}}<br><br>
+
+        <a href="{{ path('/') }}">Etape précedente</a>
+        {{form_widget(form.save)}}
+        <br><br>
+    {{ form_end(form, {'render_rest': false}) }}
+
+</div>
+{% endblock %}

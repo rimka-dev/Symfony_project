@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces index{% endblock %}
+
+{% block body %}
+    <h1>Annonces index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type_logement</th>
+                <th>Prix</th>
+                <th>Nbr_chambre</th>
+                <th>Spf_chambre</th>
+                <th>Chambre_meub</th>
+                <th>Nbr_sdb</th>
+                <th>Superficie</th>
+                <th>Nbr_colocataire</th>
+                <th>Img_1</th>
+                <th>Img2</th>
+                <th>Img3</th>
+                <th>Img4</th>
+                <th>Animaux</th>
+                <th>Animaux_chat</th>
+                <th>Animaux_chien</th>
+                <th>Animaux_rongeur</th>
+                <th>Animaux_autres</th>
+                <th>Pays</th>
+                <th>Region</th>
+                <th>Ville</th>
+                <th>Adresse</th>
+                <th>Comp_adresse</th>
+                <th>Code_postal</th>
+                <th>Date_creation</th>
+                <th>Pref_genre</th>
+                <th>Description</th>
+                 <th>Fumeur</th>
+                <th>equipements</th>
+                <th>loisirs</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for annonce in annonces %}
+            <tr>
+                <td>{{ annonce.id }}</td>
+                <td>{{ annonce.typeLogement }}</td>
+                <td>{{ annonce.prix }}</td>
+                <td>{{ annonce.nbrChambre }}</td>
+                <td>{{ annonce.spfChambre }}</td>
+                <td>{{ annonce.chambreMeub ? 'Yes' : 'No' }}</td>
+                <td>{{ annonce.nbrSdb }}</td>
+                <td>{{ annonce.superficie }}</td>
+                <td>{{ annonce.nbrColocataire }}</td>
+                <td>{{ annonce.img1 }}</td>
+                <td>{{ annonce.img2 }}</td>
+                <td>{{ annonce.img3 }}</td>
+                <td>{{ annonce.img4 }}</td>
+                <td>{{ annonce.animaux ? 'Yes' : 'No' }}</td>
+                <td>{{ annonce.animauxChat ? 'Yes' : 'No' }}</td>
+                <td>{{ annonce.animauxChien ? 'Yes' : 'No' }}</td>
+                <td>{{ annonce.animauxRongeur ? 'Yes' : 'No' }}</td>
+                <td>{{ annonce.animauxAutres }}</td>
+                <td>{{ annonce.pays }}</td>
+                <td>{{ annonce.region }}</td>
+                <td>{{ annonce.ville }}</td>
+                <td>{{ annonce.adresse }}</td>
+                <td>{{ annonce.compAdresse }}</td>
+                <td>{{ annonce.codePostal }}</td>
+                <td>{{ annonce.dateCreation ? annonce.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ annonce.prefGenre }}</td>
+                <td>{{ annonce.description }}</td>
+                <td>{{ annonce.fumeur ? 'Yes' : 'No' }}</td>
+                <td>{% for equipement in annonce.equipements %}
+                        {{equipement.nom}}
+                    {% endfor %} 
+                </td>
+                <td>{% for loisir in annonce.loisirs %}
+                        {{loisir.nom}}
+                    {% endfor %} 
+                </td>
+                
+                <td>
+                    <a href="{{ path('annonces_show', {'id': annonce.id}) }}">show</a>
+                    <a href="{{ path('annonces_edit', {'id': annonce.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="29">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('annonces_new') }}">Create new</a>
+
+
+    
+{% endblock %}

@@ -1,0 +1,20 @@
+ {# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}  #}
+<div class="container">
+{{ form_start(form,{'attr':{'class':'form-login formCreatAnnonce m-5', 'style':'max-width: 70%; margin: 0 auto;'}}) }}
+{# {{ form_widget(form) }} #}
+{{form_row(form.email)}}
+{{form_row(form.nom)}}
+{{form_row(form.prenom)}}
+{{form_row(form.age)}}
+{{form_row(form.img_avatar)}}
+{{form_row(form.pays)}}
+{{form_row(form.region)}}
+{{form_row(form.ville)}}
+{{form_row(form.adresse_user)}}
+{{form_row(form.code_postal)}}
+{{form_row(form.submit,{'attr':{'class':'bttonlongin btn mt-2', 'style':'margin:0 auto;'}})}}
+{{ form_end(form, {'render_rest': false}) }} 
+</div>

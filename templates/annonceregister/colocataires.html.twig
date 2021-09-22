@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Annonces{% endblock %}
+
+{% block body %}
+<div class="container">
+    Logement Equipements <strong>Colocataires</strong> Activités Photos Validator
+    <br>
+    <br>
+    <hr>
+    <h2>Votre futur colocataire</h2>
+    <p>Vous préférez  vivre avec :</p>
+    {{ form_start(form) }} 
+    {{form_widget(form._token)}}
+    {{form_errors(form)}}        
+        {% for child in form.pref_genre %}
+        <div>
+            {{ form_widget(child) }}
+            {{ form_label(child) }}
+        </div>
+        {% endfor %}
+
+        <br><br>
+        <p>Y-a-t-il des animaux présents sur le lieu de vie ?</p>
+        <div>{{form_widget(form.animaux_chat)}} Chat</div>
+        <div>{{form_widget(form.animaux_chien)}} Chien</div>
+        <div>{{form_widget(form.animaux_rongeur)}} Rongeurs</div>
+        <div>Autres, précisez : {{form_widget(form.animaux_autres)}} </div>
+
+    
+        <a href="{{ path('annonceregister/equipements') }}">Etape précedente</a>
+        {{form_widget(form.save)}}
+        <br><br>
+    {{ form_end(form, {'render_rest': false}) }}
+</div>
+{% endblock %}

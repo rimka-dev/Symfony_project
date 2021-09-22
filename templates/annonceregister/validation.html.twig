@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Annonces{% endblock %}
+
+{% block body %}
+<div class="container">
+    Logement Equipements Colocataires Activités Photos <strong>Validation</strong>
+    <br>
+    <br>
+    <hr>
+    <h2>Validation</h2>
+    <p>{{ annonce.id }}</p>
+    <p>{{ annonce.typeLogement }}</p>
+    <img src="/images/{{annonce.img1}}" class="img-thumbnail w-25" alt="">
+    {% if foo is defined %}
+        <img src="/images/{{annonce.img2}}" class="img-thumbnail w-25" alt="">
+    {% endif %}
+    {% if foo is defined %}
+        <img src="/images/{{annonce.img3}}" class="img-thumbnail w-25" alt="">
+    {% endif %}
+    {% if foo is defined %}
+        <img src="/images/{{annonce.img4}}" class="img-thumbnail w-25" alt="">
+    {% endif %}
+    <br><br/>
+    <div class="card col-3">
+        <div class="card-body">
+        <strong>Le logement</strong>
+            <ul>
+                <li>{{ annonce.adresse }}</li>
+                <li>{{ annonce.superficie }}</li>
+                <li>{{ annonce.prix }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card col-3">
+        <div class="card-body">
+        <strong>Equipement et règlement</strong>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card col-3">
+        <div class="card-body">
+        <strong>Colocataire</strong>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <a href="{{ path('annonceregister/photos') }}">Etape précedente</a>
+    <a href="{{ path('annonceregister/enregistrement') }}">Enregistrer !</a>
+
+    <br><br>
+
+
+</div>
+{% endblock %}

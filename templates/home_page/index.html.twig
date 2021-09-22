@@ -1,0 +1,303 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomePageController!
+{% endblock %}
+
+{% block body %}
+
+	<div class=' m-5'>
+
+		{% if is_granted('ROLE_USER') %}
+			{# <a class="btn btn-warning" href="{{path('app_logout')}}" role="button">Se deconnecter</a> #}
+			<a class="btn btn-success" href="{{ path('annonces_new') }}" role="button">+ Créer une annonce</a>
+			<a class="btn btn-success" href="{{ path('userbienvenue') }}" role="button">Modifier mon profil</a>
+			<a class="btn btn-primary" href="{{path('voirplus_page')}}" role="button">Voir plus d'annonces</a>
+			<a class="btn btn-info" href="{{path('filter_annonces')}}" role="button">Filtrez votre recherche!</a>
+		{% else %}
+			{# <a class="btn btn-primary" href="{{path('app_login')}}" role="button">Se connecter</a> #}
+			<a class="btn btn-primary" href="{{path('voirplus_page')}}" role="button">Voir plus d'annonces</a>
+			<a class="btn btn-primary" href="{{path('app_register')}}" role="button">Créer un compte</a>
+			<a class="btn btn-info" href="{{path('filter_annonces')}}" role="button">Filtrez votre recherche!</a>
+
+		{% endif %}
+
+	</div>
+	<div class="container p-3 m-5" style="position: relative; haith : 300px; background-color:#F9F9F9" id="root"></div>
+
+
+	{# =============== hero header photo ===================== #}
+			<section class="hero">
+            <h1>Partagez bien plus qu'un logement</h1>
+            <div class="encart">
+                <div class="cta">
+                    <div class="circle-logo">
+                        <img class="whitelogo" src="images/img/logo-2@2x.png" alt="logo blanc">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <a class="bouton-rechercher" href="...">Rechercher une coloc</a>
+                        <a class="bouton-proposer" href="...">Proposer une coloc</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+	<!-- *************************** SECTION CONCEPT ****************************** -->
+	<section class="concept container">
+		<article class="article row">
+			<div class="col-md-6">
+				<h2>RETROCOLOC, LE CONCEPT</h2>
+				<br>
+				<p>La colocation ce n’est pas que pour les jeunes !
+					<br><br>Partager son espace de vie avec d’autres séniors peut réduire la solitude et développer de nouvelles relations sociales tout en réduisant les frais de la vie quotidienne.
+					<br><br>Vous avez plus de 65 ans, vous êtes dynamique et vous souhaitez partager votre quotidien avec un(e) Retro-Coloc&nbsp;?
+				</p>
+				<div class="text-center text-md-left">
+					<button>Je me lance!</button>
+				</div>
+			</div>
+			<div class="col-md-6 d-none d-md-block">
+				<img src="/images/img/senior-people-watching-television-in-the-living-room_1.png" alt="senior people watching TV" class="img-fluid">
+			</div>
+		</article>
+	</section>
+
+	<!-- ****************************************** COMMENT CA MARCHE ********************************************** -->
+
+	<section class="comment">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-12">
+					<h1>Comment ça marche?</h1>
+				</div>
+			</div>
+
+			<article class="recherchez row">
+				<div class="col-md-8 col-lg-6">
+					<div class="row">
+						<div class="col-4 d-flex justify-content-center">
+							<div class="numero">
+								<p>1</p>
+							</div>
+						</div>
+						<div class="col-8">
+							<h2>RECHERCHEZ</h2>
+							<br>
+							<p>Pour trouver le ou la Rétro-Coloc qu’il vous faut, commencez par parcourir les annonces et selectionner celles qui vous intéressent en les mettant dans vos favoris
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="offset-4 col-8 offset-md-0 col-md-4 col-lg-4 offset-lg-2">
+					<img src="/images/img/undraw_Web_search_re_efla.png" alt="drawing search" class="img-force-fluid">
+				</div>
+			</article>
+
+			<article class="recherchez row flex-row-reverse">
+
+				<div class="col-md-8 col-lg-6">
+					<div class="row">
+						<div class="col-4 d-flex justify-content-center">
+							<div class="numero">
+								<p>2</p>
+							</div>
+						</div>
+						<div class="col-8">
+							<h2>CONTACTEZ</h2>
+							<br>
+							<p>Une fois l’annonce de votre choix selectionnée, vous pouvez explorer le profil de la personne pour en apprendre un peu plus sur le lieu de vie, ses loisirs et sa personnalité !
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="offset-4 col-8 offset-md-0 col-md-4 col-lg-4 offset-lg-2">
+					<img src="/images/img/undraw_Personal_email_re_4lx7.png" alt="drawing email" class="img-force-fluid">
+				</div>
+			</article>
+
+			<article class="recherchez row">
+				<div class="col-md-8 col-lg-6">
+					<div class="row">
+						<div class="col-4 d-flex justify-content-center">
+							<div class="numero">
+								<p>3</p>
+							</div>
+						</div>
+						<div class="col-8">
+							<h2>TROUVEZ LA PERLE RARE</h2>
+							<br>
+							<p>Vous avez trouvé l’annonce et la personne qui correspondent à vos attentes ?
+								<br>C’est le moment de la contacter pour organiser une visite du lieu de vie. L’aventure Rétro-Coloc commence !</p>
+						</div>
+					</div>
+				</div>
+				<div class="offset-4 col-8 offset-md-0 col-md-4 col-lg-4 offset-lg-2">
+					<img src="/images/img/undraw_explore_7ofa.png" alt="drawing explore" class="img-force-fluid">
+				</div>
+			</article>
+		</div>
+	</section>
+
+
+	<!-- ****************************************** SECTION ANNONCES ********************************************** -->
+	<section id="annonces">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h3>LES DERNIERES ANNONCES</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				{% for annonce in annonces %}
+					<div class="col-12 col-lg-6">
+						<div style="width: 42rem;" class="cardAnnonce row m-4">
+							<div class="col-md-6">
+								<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img1}}" class=" borderImageCard d-block w-100" alt="..."></a>
+										</div>
+										{% if annonce.img2 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img2}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+										{% if annonce.img3 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img3}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+										{% if annonce.img4 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img4}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+									</div>
+									<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+								<img src="images/{{annonce.user.imgAvatar}}" class=" imgAvatarCard img-thumbnail rounded-circle w-25" alt="">
+								<p class="nameUser">{{annonce.user.nom}}
+									<br>
+									<span>{{annonce.user.age}}
+										ans</span>
+								</p>
+							</div>
+							<div class="col-md-6">
+								<h5 class="card-title">{{ annonce.typeLogement }}
+									-
+									{{annonce.nbrChambre}}
+									{{(annonce.nbrChambre > 1)? 'piéces' : 'piéce'}}
+									-
+									{{annonce.superficie}}m²
+								</h5>
+								<p style="color:#D65863; font-weight: bold;">{{annonce.prix}}€/mois</p>
+								<p class="card-text">
+									{{annonce.region}}
+									({{annonce.ville}})
+								</p>
+								<p>
+									{{annonce.nbrChambre}}
+									{{(annonce.nbrChambre > 1)? 'chambres' : 'chambre'}}
+									{{annonce.spfChambre}}m²</p>
+								<p style="font-size:12px;">{{annonce.dateCreation | date('d/m/y')}}
+									à
+									{{annonce.dateCreation | date('H:i')}}
+								</p>
+								<p style="margin-bottom: 0rem;">
+									{% for loisir in annonce.loisirs |slice(0, 2)%}
+										<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{loisir.nom}}</span>
+									{% endfor %}
+								</p>
+								<p class='paraEquipements' style="margin-bottom: 0rem;">
+									{% for equipement in annonce.equipements |slice(0, 2) %}
+										<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{equipement.nom}}</span>
+									{% endfor %}
+								</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<!-- *************************************** LES AVIS ****************************************** -->
+	<section class="avis">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-md-4 mb-4">
+							<div class="card-avis shadow-card">
+								<div class="row">
+									<div class="col-6 col-md-12">
+										<h3>Colette</h3>
+									</div>
+									<div class="col-6 col-md-12 text-right text-md-left">
+										<div class="score">★★★★★</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis illum, at mollitia nulla est suscipit exercitationem.</blockquote>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="card-avis shadow-card">
+								<div class="row">
+									<div class="col-6 col-md-12">
+										<h3>Abdourrahmane</h3>
+									</div>
+									<div class="col-6 col-md-12 text-right text-md-left">
+										<div class="score">★★★☆☆</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<blockquote>Agni nihil illo, delectus assumenda animi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis illum..</blockquote>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="card-avis shadow-card">
+								<div class="row">
+									<div class="col-6 col-md-12">
+										<h3>Sim</h3>
+									</div>
+									<div class="col-6 col-md-12 text-right text-md-left">
+										<div class="score">★☆☆☆☆</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<blockquote>Officiis illum, at mollitia nulla est suscipit exercitationem cum recusandae sint commodi eius quidem.</blockquote>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="groupe-vieux">
+		<div>
+			Rencontrez la communauté<br>
+			Rétro-Coloc
+		</div>
+	</section>
+
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Filtre de recherche
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center m-4">Trouver votre prochain RetroColoc</h1>
+		{{ form_start(form, {'attr':{'id':'form_recherche', 'class':'row p-3 m-3'}}) }}
+		{# {{dump(form.type_logement)}} #}
+		{{ form_row(form._token) }}
+		{{ form_errors(form) }}
+		<div class=" ligne-droite-form col-sm-3 col-md-4  d-flex flex-column justify-content-center ">
+			<label class="titre_forme" for="recherche">
+				Localisation</label>
+			{{ form_widget(form.ville,{'attr':{'class': 'input_ville', 'placeholder':'Nom de la ville'}}) }}
+			{{ form_errors(form.ville) }}
+		</div>
+		<div class="ligne-droite-form col-sm-3 col-md-4 d-flex flex-column justify-content-center">
+			<label class="titre_forme" for="recherche">Prix maximum (par mois)</label>
+			{{form_widget(form.prix, {'attr':{'class':'input_prix', 'placeholder':'600€'}})}}
+			{{ form_errors(form.prix) }}
+		</div>
+		<div class="col-sm-4 ">
+			<p class="titre_forme">Type de logement</p>
+			{% for children in form.type_logement %}
+				{{ form_widget(children, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}}) }}
+				{{form_label(children)}}
+			{% endfor %}
+		</div>
+		<!-- =========================== partie accordeon du formulaire ============================ -->
+		<div class="accordion accordion-flush" id="accordionFlushExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingOne">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+						+ de filtres
+					</button>
+				</h2>
+				<div id="flush-collapseOne" class=" row accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+					<div class="ligne-droite-partiedeux col-sm-3 col-md-4  d-flex flex-column justify-content-center   ">
+						<p class="titre_forme">Superficie minimum</p>
+						<div class="d-flex m-1">
+							<label class="mt-1" for="recherche">Superficie du logement</label>
+							{{form_widget(form.superficie, {'attr':{'class':'input_superficie', 'placeholder':'Ex : 50'}})}}m²
+							{{ form_errors(form.superficie) }}
+						</div>
+						<div class="d-flex">
+							<label class="mt-1" for="recherche">Superficie de la chambre</label>
+							{{form_widget(form.spf_chambre , {'attr':{'class':'input_superficie', 'placeholder':'Ex : 12'}})}}m²
+							{{ form_errors(form.spf_chambre) }}
+						</div>
+					</div>
+					<div class="ligne-droite-partiedeux col-sm-3 col-md-4  ">
+						<p class="titre_forme">Je préfère vivre avec</p>
+						{% for children in form.pref_genre %}
+							{{ form_widget(children, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}}) }}
+							{{form_label(children)}}
+						{% endfor %}
+					</div>
+					<div class="col-sm-4  ">
+						<p class="titre_forme">Règlement intérieur</p>
+						{{form_widget(form.animaux, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}})}}
+						{{form_label(form.animaux)}}
+						{{ form_errors(form.animaux) }}
+
+						{{form_widget(form.fumeur, {'attr':{'class':'form-check-input', 'id':'flexCheckDefault'}})}}
+						{{form_label(form.fumeur)}}
+						{{ form_errors(form.fumeur) }}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{form_widget(form.Rechercher , {'attr':{'class':'bouton shadow'}})}}
+		{{ form_end(form) }}
+
+
+		{# ============================================= #}
+
+
+		<div class="row" style=" top:300px">
+		<div class=" carteMaps col-sm-12 col-md-6">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4281390.96719473!2d1.8930410478799118!3d47.195585938473485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2sFrance!5e0!3m2!1sfr!2sfr!4v1624883197637!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		</div>
+			{% if  annonces is not empty  %}
+				{% for annonce in annonces %}
+					<div class="col-sm-12 col-md-6">
+						<div style="width: 42rem;" class="cardAnnonce row m-4">
+							<div class="col-md-6">
+								<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img1}}" class=" borderImageCard d-block w-100" alt="..."></a>
+										</div>
+										{% if annonce.img2 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img2}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+										{% if annonce.img3 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img3}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+										{% if annonce.img4 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img4}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+									</div>
+									<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+								<img src="/images/{{annonce.user.imgAvatar}}" class=" imgAvatarCard img-thumbnail rounded-circle w-25" alt="">
+								<p class="nameUser">{{annonce.user.nom}}
+									<br>
+									<span>{{annonce.user.age}}
+										ans</span>
+								</p>
+							</div>
+							<div class="col-md-6">
+								<h5 class="card-title">{{ annonce.typeLogement }}
+									-
+									{{annonce.nbrChambre}}
+									{{(annonce.nbrChambre > 1)? 'piéces' : 'piéce'}}
+									-
+									{{annonce.superficie}}m²
+								</h5>
+								<p style="color:#D65863; font-weight: bold;">{{annonce.prix}}€/mois</p>
+								<p class="card-text">
+									{{annonce.region}}
+									({{annonce.ville}})
+								</p>
+								<p>
+									{{annonce.nbrChambre}}
+									{{(annonce.nbrChambre > 1)? 'chambres' : 'chambre'}}
+									{{annonce.spfChambre}}m²</p>
+								<p style="font-size:12px;">{{annonce.dateCreation | date('d/m/y')}}
+									à
+									{{annonce.dateCreation | date('H:i')}}
+								</p>
+								<p style="margin-bottom: 0rem;">
+									{% for loisir in annonce.loisirs |slice(0, 2)%}
+										<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{loisir.nom}}</span>
+									{% endfor %}
+								</p>
+								<p class='paraEquipements' style="margin-bottom: 0rem;">
+									{% for equipement in annonce.equipements |slice(0, 2) %}
+										<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{equipement.nom}}</span>
+									{% endfor %}
+								</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="alert alert-warning text-center m-3" role="alert">
+					Aucun resultat pour votre recherche! 
+															réessayer avec d'autres critères.
+
+				</div>
+
+			{% endif %}
+		</div>
+
+	</div>
+{% endblock %}

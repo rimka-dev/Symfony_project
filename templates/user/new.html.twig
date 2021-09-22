@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}New User{% endblock %}
+{% block body %} 
+<h1>Rejoignez la communauté des retro-colocs </h1>
+ {{ form_start(form) }} 
+    {{ form_widget(form._token) }}
+    Votre nom {{ form_widget(form.nom) }} 
+    Votre prenom {{ form_widget(form.prenom) }} 
+    Votre email {{ form_widget(form.email) }} 
+    Votre age {{ form_widget(form.age) }} 
+    Votre mot de passe {{ form_widget(form.password) }} 
+    <button class="btn">{{ button_label|default('C\'est tout bon') }}</button>
+ {{ form_end(form, {'render_rest': false}) }} 
+ {% endblock %}

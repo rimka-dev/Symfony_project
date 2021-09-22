@@ -1,0 +1,47 @@
+/:
+    path: /
+    controller: App\Controller\HomePageController::index
+
+/ccm:
+    path: /ccm
+    controller: App\Controller\StatiquesPagesController::ccm
+
+/colocations:
+    path: /colocations
+    controller: App\Controller\StatiquesPagesController::colocations
+
+/communaute:
+    path: /communaute
+    controller: App\Controller\StatiquesPagesController::communaute
+
+/contacts:
+    path: /contacts
+    controller: App\Controller\StatiquesPagesController::contacts
+
+annonceregister/logement:
+    path: /logement
+    controller: App\Controller\AnnonceregisterController::logement
+
+annonceregister/equipements:
+    path: /equipements
+    controller: App\Controller\AnnonceregisterController::equipements
+
+annonceregister/colocataires:
+    path: /colocataires
+    controller: App\Controller\AnnonceregisterController::colocataires
+
+annonceregister/activites:
+    path: /activites
+    controller: App\Controller\AnnonceregisterController::activites
+
+annonceregister/photos:
+    path: /photos
+    controller: App\Controller\AnnonceregisterController::photos
+
+annonceregister/validation:
+    path: /validation
+    controller: App\Controller\AnnonceregisterController::validation
+
+annonceregister/enregistrement:
+    path: /enregistrement
+    controller: App\Controller\AnnonceregisterController::enregistrement

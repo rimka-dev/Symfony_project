@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Voir toute les annonces
+		</h1>
+		<div>
+
+			{% if is_granted('ROLE_USER') %}
+				<a class="btn btn-warning" href="{{path('app_logout')}}" role="button">Se deconnecter</a>
+				<a class="btn btn-success" href="{{ path('annonces_new') }}" role="button">+ Créer une annonce</a>
+				<a class="btn btn-info" href="{{path('filter_annonces')}}" role="button">Filtrez votre recherche!</a>
+			{% else %}
+				<a class="btn btn-primary" href="{{path('app_login')}}" role="button">Se connecter</a>
+				<a class="btn btn-info" href="{{path('filter_annonces')}}" role="button">Filtrez votre recherche!</a>
+				<a class="btn btn-primary" href="{{path('app_register')}}" role="button">Créer un compte</a>
+
+			{% endif %}
+
+		</div>
+		<div class="container" style="position: relative; haith : 300px;" id="root">
+		
+		</div>
+
+		{# <div class="row" style=" top:300px">
+
+			{% for annonce in annonces %}
+				<div class="col-12 col-md-6 col-lg-4">
+
+					<div class="card m-2" style="width: 18rem;">
+						<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img1}}" class="card-img-top" alt="..."></a>
+						<div class="card-body">
+							<h5 class="card-title">{{ annonce.typeLogement }}
+								-
+								{{annonce.nbrChambre}}
+								piéces -
+								{{annonce.superficie}}m²
+							</h5>
+							<p>{{annonce.dateCreation | date('d/m/y')}} à {{annonce.dateCreation | date('H:i')}} </p>
+							<p class="card-text">Région :
+								{{annonce.region}}<br>{{annonce.nbrChambre}}
+								Chambre
+								{{annonce.spfChambre}}m²</p>
+							{% for loisir in annonce.loisirs %}
+								<span class="badge bg-primary m-1">{{loisir.nom}}</span>
+							{% endfor %}
+							{% for equipement in annonce.equipements %}
+								<span class="badge bg-primary m-1">{{equipement.nom}}</span>
+							{% endfor %}
+							<a href="#" class="btn btn-primary">{{ annonce.prix }}€/mois</a><br>
+							{{annonce.user.nom}}
+							<img src="images/{{annonce.user.imgAvatar}}" class="img-thumbnail w-25" alt="">
+						</div>
+					</div>
+
+				</div>
+
+			{% endfor %}
+
+		</div> #}
+
+		<div class="row">
+		{% for annonce in annonces %}
+		<div class="col-12 col-md-6">
+			<div style="width: 42rem;" class="cardAnnonce row m-4">
+				<div class="col-md-6">
+					<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img1}}" class=" borderImageCard d-block w-100" alt="..."></a>
+							</div>
+							{% if annonce.img2 %}
+							<div class="carousel-item">
+								<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img2}}" class="borderImageCard d-block w-100" alt="..."></a>
+							</div>
+							{% endif %}
+							{% if annonce.img3 %}
+							<div class="carousel-item">
+								<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img3}}" class="borderImageCard d-block w-100" alt="..."></a>
+							</div>
+							{% endif %}
+							{% if annonce.img4 %}
+							<div class="carousel-item">
+								<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img4}}" class="borderImageCard d-block w-100" alt="..."></a>
+							</div>
+							{% endif %}
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<img src="images/{{annonce.user.imgAvatar}}" class=" imgAvatarCard img-thumbnail rounded-circle w-25" alt="">
+					<p class="nameUser">{{annonce.user.nom}} <br> <span>{{annonce.user.age}} ans</span> </p>
+				</div>
+				<div class="col-md-6">
+					<h5 class="card-title">{{ annonce.typeLogement }}
+						-
+						{{annonce.nbrChambre}}
+						{{(annonce.nbrChambre > 1)? 'piéces' : 'piéce'}}
+						-
+						{{annonce.superficie}}m²
+					</h5>
+					<p style="color:#D65863; font-weight: bold;">{{annonce.prix}}€/mois</p>
+					<p class="card-text">
+						{{annonce.region}} ({{annonce.ville}})
+					</p>
+					<p> {{annonce.nbrChambre}}
+						{{(annonce.nbrChambre > 1)? 'chambres' : 'chambre'}}
+						{{annonce.spfChambre}}m²</p>
+					<p style="font-size:12px;">{{annonce.dateCreation | date('d/m/y')}}
+								à
+								{{annonce.dateCreation | date('H:i')}}
+							</p>
+					<p style="margin-bottom: 0rem;">
+					{% for loisir in annonce.loisirs |slice(0, 2)%}
+						<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{loisir.nom}}</span>
+					{% endfor %}
+					</p>
+					<p class='paraEquipements' style="margin-bottom: 0rem;">
+					{% for equipement in annonce.equipements |slice(0, 2) %}
+						<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{equipement.nom}}</span>
+					{% endfor %}
+					</p>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		</div>
+
+
+	</div>
+{% endblock %}

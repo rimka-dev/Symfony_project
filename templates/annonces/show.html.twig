@@ -1,0 +1,248 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces
+{% endblock %}
+
+{% block body %}
+	{# 
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<td>{{ annonce.id }}</td>
+					</tr>
+					<tr>
+						<th>Type_logement</th>
+						<td>{{ annonce.typeLogement  }}</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td>{{ annonce.prix }}</td>
+					</tr>
+					<tr>
+						<th>Nbr_chambre</th>
+						<td>{{ annonce.nbrChambre }}</td>
+					</tr>
+					<tr>
+						<th>Spf_chambre</th>
+						<td>{{ annonce.spfChambre }}</td>
+					</tr>
+					<tr>
+						<th>Chambre_meub</th>
+						<td>{{ annonce.chambreMeub ? 'Yes' : 'No' }}</td>
+					</tr>
+					<tr>
+						<th>Nbr_sdb</th>
+						<td>{{ annonce.nbrSdb }}</td>
+					</tr>
+					<tr>
+						<th>Superficie</th>
+						<td>{{ annonce.superficie }}</td>
+					</tr>
+					<tr>
+						<th>Nbr_colocataire</th>
+						<td>{{ annonce.nbrColocataire }}</td>
+					</tr>
+					<tr>
+						<th>Img_1</th>
+						<td>{{ annonce.img1 }}</td>
+					</tr>
+					<tr>
+						<th>Img2</th>
+						<td>{{ annonce.img2 }}</td>
+					</tr>
+					<tr>
+						<th>Img3</th>
+						<td>{{ annonce.img3 }}</td>
+					</tr>
+					<tr>
+						<th>Img4</th>
+						<td>{{ annonce.img4 }}</td>
+					</tr>
+					<tr>
+						<th>Animaux</th>
+						<td>{{ annonce.animaux ? 'Oui' : 'No' }}</td>
+					</tr>
+					<tr>
+						<th>Animaux_chat</th>
+						<td>{{ annonce.animauxChat ? 'Chat' : 'No' }}</td>
+					</tr>
+					<tr>
+						<th>Animaux_chien</th>
+						<td>{{ annonce.animauxChien ? 'Chien' : 'No' }}</td>
+					</tr>
+					<tr>
+						<th>Animaux_rongeur</th>
+						<td>{{ annonce.animauxRongeur ? 'Ronger' : 'No' }}</td>
+					</tr>
+					<tr>
+						<th>Animaux_autres</th>
+						<td>{{ annonce.animauxAutres }}</td>
+					</tr>
+					<tr>
+						<th>Pays</th>
+						<td>{{ annonce.pays }}</td>
+					</tr>
+					<tr>
+						<th>Region</th>
+						<td>{{ annonce.region }}</td>
+					</tr>
+					<tr>
+						<th>Ville</th>
+						<td>{{ annonce.ville }}</td>
+					</tr>
+					<tr>
+						<th>Adresse</th>
+						<td>{{ annonce.adresse }}</td>
+					</tr>
+					<tr>
+						<th>Comp_adresse</th>
+						<td>{{ annonce.compAdresse }}</td>
+					</tr>
+					<tr>
+						<th>Code_postal</th>
+						<td>{{ annonce.codePostal }}</td>
+					</tr>
+					<tr>
+						<th>Date_creation</th>
+						<td>{{ annonce.dateCreation ? annonce.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+					</tr>
+					<tr>
+						<th>Pref_genre</th>
+						<td>{{ annonce.prefGenre }}</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>{{ annonce.description }}</td>
+					</tr>
+					<tr>
+						<th>Fumeur</th>
+						<td>{{ annonce.fumeur ? 'Yes' : 'No' }}</td>
+					</tr>
+				</tbody>
+			</table> #}
+
+
+	<div class="container">
+		<a class="arrow" href="{{ path('filter_annonces') }}">
+			<i class="bi bi-arrow-left-short"></i>&nbsp;<span>Retour à la recherche</span>
+		</a>
+		<div class="row justify-content-between mt-10 p-3 bg-light rounded shadow-sm bloc-annonce">
+			<div class="col-4 text-center">
+				<img class="rounded-circle img-fluid mb-2 avatar" src="/images/{{annonce.user.imgAvatar}}" class="img-thumbnail m-1 w-25" alt="">
+				<p class="">
+					<span class="text-capitalize font-weight-bold">{{annonce.user.prenom}}</span><br>
+					<span class="text-lowercase">{{annonce.user.age}}
+						ans</span>
+				</p>
+			</div>
+			<div class="col-8">
+				<div class="row">
+					<div class="col-md-6 text-center mt-5 font-weight-bold">
+						<p>{{ annonce.typeLogement }}
+							-
+							{{annonce.nbrChambre}}
+							{{(annonce.nbrChambre > 1)? 'chambres à louer' : 'chambre à louer'}}
+							-
+							{{annonce.superficie}}m²</p>
+						<p class="rose">{{annonce.prix}}€/mois</p>
+					</div>
+
+					<div class="col-md-6 mt-5 text-center">
+						<p>Région :
+							{{annonce.region}}</p>
+						<p>{{annonce.nbrChambre}}
+							{{(annonce.nbrChambre > 1)? 'chambres' : 'chambre'}}
+							-
+							{{annonce.spfChambre}}m²</p>
+						<p>Ajouter aux favoris
+							<a style="color:#D8626D;" href="">
+								<i class="bi bi-suit-heart"></i>
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="photos col-md-6 col-xs-12">
+				<img src="/images/{{annonce.img1}}" class="img-fluid w-80" alt="...">
+				<div class="row mt-2 mb-2">
+					<div class="col-4 img">
+						{% if annonce.img2 %}
+							<img src="/images/{{annonce.img2}}" class="img-fluid" alt="...">
+						{% endif %}
+					</div>
+					<div class="col-4 img">
+						{% if annonce.img3 %}
+							<img src="/images/{{annonce.img3}}" class="img-fluid" alt="...">
+						{% endif %}
+					</div>
+					<div class="col-4 img">
+						{% if annonce.img4 %}
+							<img src="/images/{{annonce.img4}}" class="img-fluid" alt="...">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="descriptif-annonce rounded col-md-6 col-xs-12">
+				<section class="a-propos-coloc">
+					<h3>A propos du rétro-colocataire :</h3>
+					<p>{{annonce.description}}</p>
+				</section>
+				<section class="loisirs">
+					<h3>Ses loisirs :</h3>
+					<div class="loisirs">
+						{% for loisir in annonce.loisirs %}
+							<span class="badge rounded m-1">{{loisir.nom}}</span>
+						{% endfor %}
+					</div>
+				</section>
+				<section class="chambre">
+					<h3>La chambre :</h3>
+					<ul class="row">
+						<li>
+							Surface :
+							{{ annonce.spfChambre }}
+							m²
+						</li>
+						<li>
+							{% if annonce.chambreMeub('Yes') %}
+								Meublée
+							{% else %}
+								La chambre n'est pas meublée
+							{% endif %}
+						</li>
+						<li>
+							Nombre de salle de bain :
+							{{ annonce.nbrSdb }}
+						</li>
+					</ul>
+				</section>
+				<section class="equipements">
+					<h3>Equipements :</h3>
+					<ul class="row">
+						{% for equipement in annonce.equipements %}
+							<li>
+								<span>{{equipement.nom}}</span>
+							</li>
+						{% endfor %}
+					</ul>
+				</section>
+				{% if is_granted('ROLE_USER') %}
+					<a class="btn rounded" href="#">Contacter</a>
+
+					{# 					<a href="{{ path('annonces_edit', {'id': annonce.id}) }}">Edit</a>
+																																			{{ include('annonces/_delete_form.html.twig') }} #}
+				{% endif %}
+			</div>
+			<div class="adresse mt-3 mb-3">
+				<h4>Localisation</h4>
+				{{ annonce.adresse }}
+			</div>
+			<div class="carte embed-responsive embed-responsive-16by9 text-center">
+				<iframe class="embed-responsive-item" width="100%" height="400px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.0689083014345!2d2.3759195156448834!3d48.87596290742329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ddd615748e7%3A0xff491706ce86162e!2s19%20All%C3%A9e%20Louise%20Lab%C3%A9%2C%2075019%20Paris!5e0!3m2!1sfr!2sfr!4v1624959468314!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			</div>
+		</div>
+	</div>
+{% endblock %}

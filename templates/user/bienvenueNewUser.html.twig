@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User
+{% endblock %}
+
+{% block body %}
+	<div class=" container-fluid ">
+		<div class="userShow mb-5">
+			<h1 class="h1ShowUser"><span class="text-capitalize">{{app.user.nom}}</span> Bienvenue dans la communauté Rétro-Coloc!</h1>
+			<a class="btnEditUser" href="{{ path('user_edit', {'id': app.user.id}) }}">Je complète mon profil</a>
+		</div>
+		<div class="container">
+			<div class="row mt-5">
+				<div class="cardUserShow1 col-md-4">
+					<h5 class="h5UserShow">Je propose une colocation</h5>
+				</div>
+				<div class="cardUserShow2 col-md-3">
+					<h5 class="h5UserShow">Mes annonces / mes recherches</h5>
+				</div>
+				<div class="cardUserShow3 col-md-4">
+					<h5 class="h5UserShow">Découvrir les évènements entre senoirs</h5>
+				</div>
+			</div>
+			<h6 style="color:#003F63" class="text-uppercase p-3 m-5 text-bold">Les dernières annonces
+			</h6>
+            <a class="btnAddAnnonce" href="{{ path('annonces_new') }}" role="button">+ Créer une annonce</a>
+			<div class="row">
+				{% for annonce in annonces %}
+					<div class="col-12 col-md-6">
+						<div style="width: 42rem;" class="cardAnnonce row m-4">
+							<div class="col-md-6">
+								<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img1}}" class=" borderImageCard d-block w-100" alt="..."></a>
+										</div>
+										{% if annonce.img2 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img2}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+										{% if annonce.img3 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img3}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+										{% if annonce.img4 %}
+											<div class="carousel-item">
+												<a href="{{ path('annonces_show', {'id': annonce.id}) }}"><img src="/images/{{annonce.img4}}" class="borderImageCard d-block w-100" alt="..."></a>
+											</div>
+										{% endif %}
+									</div>
+									<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+								<img src="/images/{{annonce.user.imgAvatar}}" class=" imgAvatarCard img-thumbnail rounded-circle w-25" alt="">
+								<p class="nameUser">{{annonce.user.nom}}
+									<br>
+									<span>{{annonce.user.age}}
+										ans</span>
+								</p>
+							</div>
+							<div class="col-md-6">
+								<h5 class="card-title">{{ annonce.typeLogement }}
+									-
+									{{annonce.nbrChambre}}
+									{{(annonce.nbrChambre > 1)? 'piéces' : 'piéce'}}
+									-
+									{{annonce.superficie}}m²
+								</h5>
+								<p style="color:#D65863; font-weight: bold;">{{annonce.prix}}€/mois</p>
+								<p class="card-text">
+									{{annonce.region}}
+									({{annonce.ville}})
+								</p>
+								<p>
+									{{annonce.nbrChambre}}
+									{{(annonce.nbrChambre > 1)? 'chambres' : 'chambre'}}
+									{{annonce.spfChambre}}m²</p>
+								<p style="font-size:12px;">{{annonce.dateCreation | date('d/m/y')}}
+									à
+									{{annonce.dateCreation | date('H:i')}}
+								</p>
+								<p style="margin-bottom: 0rem;">
+									{% for loisir in annonce.loisirs |slice(0, 2)%}
+										<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{loisir.nom}}</span>
+									{% endfor %}
+								</p>
+								<p class='paraEquipements' style="margin-bottom: 0rem;">
+									{% for equipement in annonce.equipements |slice(0, 2) %}
+										<span style="background-color:#2eb7c7;" class="badge rounded-pill m-1 p-2">{{equipement.nom}}</span>
+									{% endfor %}
+								</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
